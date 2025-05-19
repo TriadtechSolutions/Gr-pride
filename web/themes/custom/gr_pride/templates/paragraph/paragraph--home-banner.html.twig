@@ -1,0 +1,17 @@
+<div class="full-width-wrapper">
+  <div class="home-banner">
+    <img src="{{ file_url(content.field_image[0]['#item'].entity.uri.value) }}"
+         alt="{{ content.field_image[0]['#item'].value.alt }}"
+         class="home-bg-image">
+
+    <img src="{{ file_url(content.field_logo[0]['#item'].entity.uri.value) }}"
+         alt="{{ content.field_logo[0]['#item'].value.alt }}"
+         class="home-banner-logo">
+
+    <div class="home-banner-content">
+      <h5 class="home-banner-title">{{ content.field_title.0 }}</h5>
+      <p class="home-banner-subtitle">{{ content.field_subtitle.0 }}</p>
+      <p class="home-banner-desc">{{ content.field_description.0 }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,230 @@
+/**
+ * @file
+ * Subtheme specific CSS.
+ */
+
+ * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+@font-face {
+    font-family: 'Cabinet Grotesk';
+    src: url('../fonts/CabinetGrotesk/CabinetGrotesk-Bold.eot');
+    src: url('../fonts/CabinetGrotesk/CabinetGrotesk-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/CabinetGrotesk/CabinetGrotesk-Bold.woff2') format('woff2'), url('../fonts/CabinetGrotesk/CabinetGrotesk-Bold.woff') format('woff'), url('../fonts/CabinetGrotesk/CabinetGrotesk-Bold.ttf') format('truetype'), url('../fonts/CabinetGrotesk/CabinetGrotesk-Bold.svg#CabinetGrotesk-Bold') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cabinet Grotesk';
+    src: url('../fonts/CabinetGrotesk/CabinetGrotesk-Medium.eot');
+    src: url('../fonts/CabinetGrotesk/CabinetGrotesk-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/CabinetGrotesk/CabinetGrotesk-Medium.woff2') format('woff2'), url('../fonts/CabinetGrotesk/CabinetGrotesk-Medium.woff') format('woff'), url('../fonts/CabinetGrotesk/Grotesk-Medium.ttf') format('truetype'), url('../fonts/Grotesk/Grotesk-Medium.svg#Grotesk-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --bs-primary: #EE8D5A;
+    --bs-secondary: #e53637;
+    --secondary-color-green: #666666;
+    --secondary-color-sandal: #FAF3ED;
+    --secondary-color-black: #111111;
+    --footer-text-color: rgba(255, 255, 255, 0.55);
+}
+
+h1 {
+    font-size: 35px;
+    font-weight: 800;
+    line-height: 47px;
+    font-family: 'Inter', sans-serif;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 40px;
+    font-family: 'Inter', sans-serif;
+}
+
+h3 {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 36px;
+    font-family: 'Inter', sans-serif;
+}
+
+h4 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
+    font-family: 'Cabinet Grotesk', sans-serif;
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    font-family: 'Cabinet Grotesk', sans-serif;
+}
+
+h6 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 23px;
+    font-family: 'Cabinet Grotesk', sans-serif;
+}
+
+p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    color: var(--secondary-color-green);
+}
+
+p span {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Cabinet Grotesk', sans-serif;
+    line-height: 28px;
+    color: var(--bs-secondary);
+}
+
+
+footer {
+    padding-top: 100px;
+    background-color: var(--secondary-color-black);
+}
+
+.btn {
+    width: 185px;
+    height: 62px;
+    padding: 16px 0;
+    border: 2px solid var(--secondary-color-black);
+    border-radius: 0;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 500;
+    font-family: 'Rubik', sans-serif;
+    text-transform: uppercase;
+    background-color: transparent;
+    position: relative;
+}
+
+.quarter {
+    width: 20px;
+    height: 20px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 100%;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background: var(--secondary-color-black);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.btn-outline-primary {
+    color: var(--secondary-color-black);
+    border: 2px solid #000;
+    background-image: linear-gradient(300deg, #000 50%, transparent 50%);
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: 20%;
+    transition: background 300ms ease-in-out;
+}
+
+.btn-outline-primary:hover {
+    background-position: 100%;
+    color: #fff;
+    border: 2px solid #000;
+    background-color: transparent;
+}
+
+.btn-outline-primary:focus {
+    box-shadow: none;
+}
+
+.btn-outline-primary:active {
+    background-color: transparent;
+    border: none;
+}
+
+.outline-primary:focus,
+.btn-outline-primary.active:focus,
+.btn-outline-primary.dropdown-toggle.show:focus,
+.btn-outline-primary:active:focus {
+    box-shadow: none;
+}
+
+#top-spacing {
+    padding-top: 104px;
+}
+
+.full-width-wrapper {
+  width: 99.6vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-banner {
+  position: relative;
+  height: 70vh; /* Full screen height */
+  color: white;
+}
+
+.home-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.home-banner-logo{
+    position: absolute;
+    top: 3%;
+    left: 33%;
+    height: 23%;
+}
+
+.home-banner-content{
+    position: absolute;
+    font-family: 'poltawski nowy';
+}
+
+.home-banner-title{
+    margin-top: 193px;
+    margin-left: 80px;
+    font-size: 22px;
+    color: #FBB034;
+    font-family: 'poltawski nowy';
+}
+
+
+.home-banner-subtitle{
+    margin-top: 116px;
+    margin-left: 25px;
+    color: #FBB034;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'poltawski nowy';
+}
+
+.home-banner-desc{
+    margin-top: 21px;
+    margin-left: 25px;
+    color: #FBB034;
+    font-size: 33px;
+    font-weight: bold;
+    line-height: 40px;
+    font-family: 'poltawski nowy';
+}
+
+
