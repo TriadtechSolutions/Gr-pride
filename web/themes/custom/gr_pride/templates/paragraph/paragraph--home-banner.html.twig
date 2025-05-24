@@ -1,17 +1,57 @@
 <div class="full-width-wrapper">
   <div class="home-banner">
-    <img src="{{ file_url(content.field_image[0]['#item'].entity.uri.value) }}"
-         alt="{{ content.field_image[0]['#item'].value.alt }}"
-         class="home-bg-image">
-
-    <img src="{{ file_url(content.field_logo[0]['#item'].entity.uri.value) }}"
-         alt="{{ content.field_logo[0]['#item'].value.alt }}"
-         class="home-banner-logo">
-
-    <div class="home-banner-content">
-      <h5 class="home-banner-title">{{ content.field_title.0 }}</h5>
-      <p class="home-banner-subtitle">{{ content.field_subtitle.0 }}</p>
-      <p class="home-banner-desc">{{ content.field_description.0 }}</p>
+    <img src="{{ file_url(content.field_image[0]['#item'].entity.uri.value) }}" alt="{{ content.field_image[0]['#item'].value.alt }}" class="home-bg-image" />
+    <div class="home-banner-image">
+      <img src="{{ file_url(content.field_logo[0]['#item'].entity.uri.value) }}" alt="{{ content.field_logo[0]['#item'].value.alt }}" class="home-banner-logo anim-element" />
+    </div>
+    <div class="home-banner-title-wrapper">
+      <h5 class="home-banner-title anim-element">{{ content.field_title[0] }}</h5>
+    </div>
+    <div class="home-banner-content-wrapper">
+      <p class="home-banner-subtitle anim-element">{{ content.field_subtitle[0] }}</p>
+      <p class="home-banner-desc ">{{ content.field_description[0] }}</p>
     </div>
   </div>
 </div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.anim-element');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('rise-to-top');
+          entry.target.classList.add('fall-from-top');
+        } else {
+          entry.target.classList.remove('fall-from-top');
+          entry.target.classList.add('rise-to-top');
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    elements.forEach(el => observer.observe(el));
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const el = document.querySelector('.home-banner-desc');
+    const text = el.textContent;
+    el.textContent = '';
+    let i = 0;
+
+    function type() {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 70); // typing speed in ms
+      }
+    }
+
+    type();
+  });
+</script>

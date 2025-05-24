@@ -10,6 +10,7 @@
   Drupal.behaviors.gr_pride = {
     attach: function (context, settings) {
 
+      
     }
   };
 

@@ -6,7 +6,7 @@
  * {
     margin: 0;
     padding: 0;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'poltawski nowy';
 }
 
 @font-face {
@@ -40,42 +40,42 @@ h1 {
     font-size: 35px;
     font-weight: 800;
     line-height: 47px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'poltawski nowy';
 }
 
 h2 {
     font-size: 32px;
     font-weight: 800;
     line-height: 40px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'poltawski nowy';
 }
 
 h3 {
     font-size: 28px;
     font-weight: 800;
     line-height: 36px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'poltawski nowy';
 }
 
 h4 {
     font-size: 22px;
     font-weight: 700;
     line-height: 30px;
-    font-family: 'Cabinet Grotesk', sans-serif;
+    font-family: 'poltawski nowy';
 }
 
 h5 {
     font-size: 18px;
     font-weight: 700;
     line-height: 25px;
-    font-family: 'Cabinet Grotesk', sans-serif;
+    font-family: 'poltawski nowy';
 }
 
 h6 {
     font-size: 16px;
     font-weight: 500;
     line-height: 23px;
-    font-family: 'Cabinet Grotesk', sans-serif;
+    font-family: 'poltawski nowy';
 }
 
 p {
@@ -88,7 +88,7 @@ p {
 p span {
     font-size: 20px;
     font-weight: 500;
-    font-family: 'Cabinet Grotesk', sans-serif;
+    font-family: 'poltawski nowy';
     line-height: 28px;
     color: var(--bs-secondary);
 }
@@ -187,39 +187,48 @@ footer {
   z-index: 0;
 }
 
-.home-banner-logo{
-    position: absolute;
-    top: 3%;
-    left: 33%;
-    height: 23%;
+.home-banner-image{
+    display: flex;
+    justify-content: center;
 }
 
-.home-banner-content{
+.home-banner-logo{
     position: absolute;
-    font-family: 'poltawski nowy';
+    top: 50px;
+    height: 100%;
+    max-height: 150px;
+}
+
+.home-banner-title-wrapper{
+    display: flex;
+    justify-content: center;
 }
 
 .home-banner-title{
-    margin-top: 193px;
-    margin-left: 80px;
-    font-size: 22px;
+    font-size: 40px;
     color: #FBB034;
     font-family: 'poltawski nowy';
+    position: absolute;
+    top:240px;
+}
+
+.home-banner-content-wrapper{
+        position: absolute;
+        top: 60%;
+        left: 5%;
+        width: 30%;
+        max-width: 340px;
 }
 
 
 .home-banner-subtitle{
-    margin-top: 116px;
-    margin-left: 25px;
     color: #FBB034;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     font-family: 'poltawski nowy';
 }
 
 .home-banner-desc{
-    margin-top: 21px;
-    margin-left: 25px;
     color: #FBB034;
     font-size: 33px;
     font-weight: bold;
@@ -227,4 +236,75 @@ footer {
     font-family: 'poltawski nowy';
 }
 
+@keyframes fallFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+@keyframes riseToTop {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+.fall-from-top {
+  animation: fallFromTop 0.8s ease-out forwards;
+}
+
+.rise-to-top {
+  animation: riseToTop 0.5s ease-in forwards;
+}
+
+
+
+/****************** Responsive ********************/
+
+@media (min-width:390px) and (max-width:767px){
+    .home-banner-title{
+        font-size: 30px;
+    }
+
+    .home-banner-content-wrapper{
+        width: 100%;
+        max-width: 325px;
+    }
+}
+
+@media (min-width:320px) and (max-width:375px){
+    .home-banner-logo{
+        top: 25px;
+        max-height: 130px;
+    }
+
+    .home-banner-title{
+        top: 180px;
+        font-size: 20px;
+    }
+
+    .home-banner-content-wrapper{
+        top: 56%;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .home-banner-subtitle{
+        font-size: 16px;
+    }
+
+    .home-banner-desc{
+        font-size: 25px;
+        line-height: 34px;
+    }
+
+}
