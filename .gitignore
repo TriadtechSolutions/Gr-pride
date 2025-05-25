@@ -2,11 +2,5 @@
 web/sites/default/settings.php
 .idea/, .vscode/
 # Ignore everything in the files folder
-web/sites/default/files/*
-
-# But allow image files
-!web/sites/default/files/**/*.jpg
-!web/sites/default/files/**/*.jpeg
-!web/sites/default/files/**/*.png
-!web/sites/default/files/**/*.gif
-!web/sites/default/files/**/*.webp
+web/sites/default/files
+/web/modules/contrib/

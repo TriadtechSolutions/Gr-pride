@@ -169,6 +169,7 @@ footer {
   margin-left: calc(-50vw + 50%);
   position: relative;
   overflow: hidden;
+  margin-top: -10px;
 }
 
 .home-banner {

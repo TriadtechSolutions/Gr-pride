@@ -21,6 +21,7 @@
         "drupal/core-composer-scaffold": "^11.1",
         "drupal/core-project-message": "^11.1",
         "drupal/core-recommended": "^11.1",
+        "drupal/page_title_visibility": "^2.0",
         "drupal/paragraphs": "^1.19",
         "drupal/viewsreference": "^2.0@beta",
         "drush/drush": "^13.6"
