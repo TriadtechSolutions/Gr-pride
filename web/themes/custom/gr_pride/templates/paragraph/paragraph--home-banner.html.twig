@@ -1,15 +1,17 @@
-<div class="full-width-wrapper">
-  <div class="home-banner">
-    <img src="{{ file_url(content.field_image[0]['#item'].entity.uri.value) }}" alt="{{ content.field_image[0]['#item'].value.alt }}" class="home-bg-image" />
-    <div class="home-banner-image">
-      <img src="{{ file_url(content.field_logo[0]['#item'].entity.uri.value) }}" alt="{{ content.field_logo[0]['#item'].value.alt }}" class="home-banner-logo anim-element" />
+<section class="Home-Banner-wrapper">
+    <div class="full-width-wrapper">
+		<div class="full-width">
+			<img src="{{ file_url(content.field_image[0]['#item'].entity.uri.value) }}" alt="{{ content.field_image[0]['#item'].value.alt }}" class="home-bg-image" />
+			<div class="home-banner-image">
+				<img src="{{ file_url(content.field_logo[0]['#item'].entity.uri.value) }}" alt="{{ content.field_logo[0]['#item'].value.alt }}" class="home-banner-logo anim-element" />
+			</div>
+			<div class="home-banner-title-wrapper">
+				<h5 class="home-banner-title anim-element">{{ content.field_title[0] }}</h5>
+			</div>
+			<div class="home-banner-content-wrapper">
+				<p class="home-banner-subtitle anim-element">{{ content.field_subtitle[0] }}</p>
+				<p class="home-banner-desc">{{ content.field_description[0] }}</p>
+			</div>
+		</div>
     </div>
-    <div class="home-banner-title-wrapper">
-      <h5 class="home-banner-title anim-element">{{ content.field_title[0] }}</h5>
-    </div>
-    <div class="home-banner-content-wrapper">
-      <p class="home-banner-subtitle anim-element">{{ content.field_subtitle[0] }}</p>
-      <p class="home-banner-desc ">{{ content.field_description[0] }}</p>
-    </div>
-  </div>
-</div>
+</section>
