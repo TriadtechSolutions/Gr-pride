@@ -164,6 +164,8 @@ footer {
     padding-top: 104px;
 }
 
+/****************From Here the section code is starting ***********************/
+
 .full-width-wrapper {
   width: 99.6vw;
   margin-left: calc(-50vw + 50%);
@@ -177,6 +179,8 @@ footer {
   height: 90vh; /* Full screen height */
   color: white;
 }
+
+/********************Home banner section**********************/
 
 .home-bg-image {
   position: absolute;
@@ -237,6 +241,8 @@ footer {
     font-family: 'poltawski nowy';
 }
 
+/******************** Home Banner style activities**********************/
+
 @keyframes fallFromTop {
   0% {
     opacity: 0;
@@ -266,6 +272,8 @@ footer {
 .rise-to-top {
   animation: riseToTop 0.5s ease-in forwards;
 }
+
+/**********************About Section************************/
 
 .about-bg-image{
     position: absolute;
@@ -321,7 +329,49 @@ footer {
     text-align: right;
 }
 
-/****************** Responsive ********************/
+.price-bg-image{
+    position: relative;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.price-content-wrapper{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 100px;
+    padding-right: 100px ;
+    box-sizing: border-box;
+}
+
+.price-title{
+    text-align: center;
+    font-size: 40px;
+    line-height: 74px;
+    color: #FBB034;
+}
+
+.price-desc{
+    text-align: center;
+    font-size: 40px;
+    line-height: 46px;
+    color: #FBB034;
+}
+
+.services-grid{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/****************** Responsive (Mobile) ********************/
 
 @media (min-width:390px) and (max-width:767px){
     .home-banner-title{
@@ -357,6 +407,19 @@ footer {
         line-height: 1px;
     }
 
+    .price-content-wrapper{
+        padding: 0;
+    }    
+
+    .price-title{
+        font-size: 25px;
+        line-height: 71px;
+    }
+    
+    .price-desc{
+        font-size: 25px;
+    }
+
 }
 
 @media (min-width:320px) and (max-width:375px){
@@ -385,7 +448,7 @@ footer {
         line-height: 34px;
     }
 
-     .about-content-wrapper{
+    .about-content-wrapper{
         flex-direction: column-reverse;
         margin-top: -40px;
     }
@@ -416,4 +479,16 @@ footer {
        line-height: 0;
     }
 
+    .price-content-wrapper{
+        padding: 0;
+    }    
+
+    .price-title{
+        font-size: 25px;
+        line-height: 30px;
+    }
+    
+    .price-desc{
+        font-size: 25px;
+    }
 }
