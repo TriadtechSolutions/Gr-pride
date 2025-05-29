@@ -1,13 +1,13 @@
 {# {{dump(content)}} #}
 
 
-<section class="price-section">
+<section class="service-section">
     <div class = "full-width-wrapper">
         <div class = "full-width">
-            <img src = "{{ file_url(content.field_bg_image_1[0]['#item'].entity.uri.value) }}" alt = "{{content.field_bg_image_1[0]['#item'].value.alt}}" class = "price-bg-image" >
-            <div class = "price-content-wrapper">
-                <h2 class = "price-title"> {{content.field_title.0}} </h2>
-                <p class = "price-desc"> {{content.field_description.0}} </p>
+            <img src = "{{ file_url(content.field_bg_image_1[0]['#item'].entity.uri.value) }}" alt = "{{content.field_bg_image_1[0]['#item'].value.alt}}" class = "service-bg-image" >
+            <div class = "service-content-wrapper">
+                <h2 class = "service-title"> {{content.field_title.0}} </h2>
+                <p class = "service-desc"> {{content.field_description.0}} </p>
             </div>
             <div class = "services-grid">
                 {{(content.field_services_grid)}}

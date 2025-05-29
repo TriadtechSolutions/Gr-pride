@@ -329,7 +329,7 @@ footer {
     text-align: right;
 }
 
-.price-bg-image{
+.service-bg-image{
     position: relative;
     object-fit: cover;
     top: 0;
@@ -338,7 +338,7 @@ footer {
     width: 100%;
 }
 
-.price-content-wrapper{
+.service-content-wrapper{
     position: absolute;
     top: 50px;
     left: 0;
@@ -349,14 +349,14 @@ footer {
     box-sizing: border-box;
 }
 
-.price-title{
+.service-title{
     text-align: center;
     font-size: 40px;
     line-height: 74px;
     color: #FBB034;
 }
 
-.price-desc{
+.service-desc{
     text-align: center;
     font-size: 40px;
     line-height: 46px;
@@ -407,16 +407,16 @@ footer {
         line-height: 1px;
     }
 
-    .price-content-wrapper{
+    .service-content-wrapper{
         padding: 0;
     }    
 
-    .price-title{
+    .service-title{
         font-size: 25px;
         line-height: 71px;
     }
     
-    .price-desc{
+    .service-desc{
         font-size: 25px;
     }
 
@@ -479,16 +479,16 @@ footer {
        line-height: 0;
     }
 
-    .price-content-wrapper{
+    .service-content-wrapper{
         padding: 0;
     }    
 
-    .price-title{
+    .service-title{
         font-size: 25px;
         line-height: 30px;
     }
     
-    .price-desc{
+    .service-desc{
         font-size: 25px;
     }
 }
