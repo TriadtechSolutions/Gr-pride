@@ -3,9 +3,75 @@
  * Global utilities.
  *
  */
-(function (Drupal,$) {
+(function (Drupal,$, once) {
 
   'use strict';
+
+ Drupal.behaviors.swiperInit = {
+  attach: function (context, settings) {
+    const sliders = once('swiper-init', '.swiper-container', context);
+
+    sliders.forEach((slider) => {
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth < 992) {
+        const pagination = slider.querySelector('.swiper-pagination');
+        const nextBtn = slider.querySelector('.swiper-button-next');
+        const prevBtn = slider.querySelector('.swiper-button-prev');
+
+        new Swiper(slider, {
+          loop: true,
+          autoplay: {
+            delay: 2400,
+            disableOnInteraction: false,
+          },
+          spaceBetween: 20,
+          breakpoints: {
+            0: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+          },
+          pagination: {
+            el: pagination,
+            clickable: true,
+          },
+          navigation: {
+            nextEl: nextBtn,
+            prevEl: prevBtn,
+          },
+        });
+
+      } else {
+        // On desktop, show all slides statically (no Swiper)
+        const wrapper = slider.querySelector('.swiper-wrapper');
+        const slides = wrapper.querySelectorAll('.swiper-slide');
+
+        wrapper.style.display = 'flex';
+        wrapper.style.flexWrap = 'wrap';
+        wrapper.style.gap = '20px';
+
+        slides.forEach((slide) => {
+          slide.style.flex = '1 0 calc(25% - 20px)';
+          slide.style.maxWidth = 'calc(25% - 20px)';
+        });
+
+        // Hide Swiper controls
+        const pagination = slider.querySelector('.swiper-pagination');
+        const nextBtn = slider.querySelector('.swiper-button-next');
+        const prevBtn = slider.querySelector('.swiper-button-prev');
+
+        if (pagination) pagination.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        if (prevBtn) prevBtn.style.display = 'none';
+      }
+    });
+  }
+};
+
+
 
   Drupal.behaviors.gr_pride = {
     attach: function (context, settings) {
@@ -57,4 +123,4 @@
     }
   };
 
-})(Drupal,jQuery);
+})(Drupal,jQuery,once);

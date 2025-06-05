@@ -7,6 +7,7 @@ base theme: bootstrap_barrio
 libraries:
   - gr_pride/bootstrap_cdn
   - gr_pride/global-styling
+  - gr_pride/swiper
 
 regions:
   top_header: 'Top header'

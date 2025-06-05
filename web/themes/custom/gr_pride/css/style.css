@@ -329,6 +329,10 @@ footer {
     text-align: right;
 }
 
+.service-section {
+    margin-top: 10px;
+}
+
 .service-bg-image{
     position: relative;
     object-fit: cover;
@@ -363,12 +367,130 @@ footer {
     color: #FBB034;
 }
 
+.service-image{
+    border-radius: 12px;
+    object-fit: cover;
+}
+
 .services-grid{
     position: absolute;
-    top: 0;
+    top: 40%;
     left: 0;
     width: 100%;
     height: 100%;
+    text-align: center;   
+}
+
+.service-grid-wrapper{
+    background-color: #f0f0f0;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 20px;
+    max-width: 345px; /* limit the width */
+    margin: 20px auto; /* center the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center; 
+}
+
+.service-grid-wrapper:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.service-slider-title{
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.price-wrapper{
+    margin-top: 10px;
+}
+
+.price-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.member-price {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Top Section */
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f3f3f3;
+  border-radius: 0 0 50px 0;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  flex-wrap: wrap;
+}
+
+.text-content {
+  flex: 1;
+  min-width: 200px;
+}
+
+.text-content h4 {
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.membership-image {
+  flex-shrink: 0;
+  padding-left: 2rem;
+}
+
+.membership-card-image {
+  max-width: 200px;
+  height: auto;
+}
+
+/* Bottom Section */
+.bottom-section {
+  display: flex;
+  background: #0e0e0e;
+  color: #fff;
+  border-radius: 0 50px 0 0;
+  padding: 2rem;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.bottom-left {
+  flex-shrink: 0;
+}
+
+.bottom-left img {
+  max-width: 120px;
+  height: auto;
+}
+
+.bottom-right {
+  flex: 1;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.bottom-right strong {
+  color: #e9b146;
 }
 
 /****************** Responsive (Mobile) ********************/
@@ -394,8 +516,8 @@ footer {
     }
 
     .about-quote-section p{
-        font-size: 30px;
-        line-height: 36px;
+        font-size: 24px;
+        line-height: 32px;
     }
 
     .about-text-wrapper{
@@ -467,8 +589,8 @@ footer {
     }
 
     .about-quote-section p{
-        font-size: 22px;
-        line-height: 30px;
+        font-size: 17px;
+        line-height: 23px;
     }
 
     .about-text-wrapper{
@@ -489,6 +611,64 @@ footer {
     }
     
     .service-desc{
-        font-size: 25px;
+        font-size: 18px;
+        padding: 10px;
+        line-height: 33px;
     }
+
+    .service-grid-wrapper{
+        padding: 15px;
+        max-width: 290px;
+        margin: 0 auto;
+    }
+
+    .service-image{
+        height: 250px;
+        width: 250px;
+        object-fit: cover;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .top-section,
+  .bottom-section {
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+  }
+
+  .membership-card-image{
+    max-width: 232px;
+  }
+
+  .text-content{
+    text-align: center;
+  }
+
+  .text-content h4{
+    font-size: 21px;
+  }
+
+  .text-content p{
+    font-size: 20px;
+  }
+
+  .membership-image {
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+
+  .bottom-section {
+    text-align: left;
+  }
+
+  .bottom-right p{
+    color: #e9b146;
+    font-size: 20px;
+  }
+
+  .bottom-left {
+    margin-bottom: 1rem;
+  }
 }

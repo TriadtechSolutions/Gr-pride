@@ -3,11 +3,21 @@ global-styling:
   js:
     js/global.js: {}
   dependencies:
-    - core/jquery  
+    - core/jquery
+    - core/once 
   css:
     component:
       css/style.css: {}
       css/colors.css: {}
+swiper:
+  version: 10.1.0
+  css:
+    theme:
+      libraries/swiper/swiper-bundle.min.css: {}
+  js:
+    libraries/swiper/swiper-bundle.min.js: {}
+  dependencies:
+    - core/drupal
 bootstrap:
   js:
     /libraries/popper.js/dist/umd/popper.min.js: { weight: -19 }
