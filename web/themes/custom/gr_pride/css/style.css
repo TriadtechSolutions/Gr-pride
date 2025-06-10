@@ -510,10 +510,18 @@ footer {
     font-weight: 700;
 }
 
+.content-text p:hover{
+    color:royalblue;
+}
+
 .content-text a{
     color: #e9b146;
     font-weight: 700;
     text-decoration: none;
+}
+
+.content-text a:hover{
+    color:royalblue;
 }
 
 .footer-second p{
@@ -707,17 +715,15 @@ footer {
   .bottom-left {
     margin-bottom: 1rem;
   }
-}
 
-@media (max-width: 768px) {
-  .contact-heading {
+   .contact-heading {
     font-size: 24px;
     line-height: 32px;
   }
 
   .content-text p {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 19px;
+    line-height: 22px;
     font-weight: 600;
   }
 
