@@ -143,8 +143,67 @@
         </div>
 {% endblock %}
 
-{% block footer %}
-        <div class="{{ container }}">
+{% block footer %}   
+            <div class="{{ container }}">
+            <div class="container my-4">
+  <div class="row text-center">
+
+    <!-- First 3 items -->
+    <div class="col-6 col-md-4 mb-3">
+      <div class="footer-first">
+        <h2 class= "contact-heading"> {{ contact_heading }}</h2>
+        <div class= "content-text">
+          <p>
+            Phone:
+            <a href="tel:{{ contact_phone|escape }}">{{ contact_phone|escape }}</a>
+          </p>
+          <p>
+            <a href="mailto:{{ contact_email|escape }}">{{ contact_email|escape }}</a>
+          </p>
+        </div>  
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4 mb-3">
+      <div class="footer-second">
+        <h2 class= "contact-heading"> {{ timing_title }}</h2>
+        <div class= "content-text">
+          <p>{{ timing }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4 mb-3">
+      <div class="footer-third">
+        <a href="{{ instagram_link }}" target="_blank" rel="noopener noreferrer">
+          <img src="{{ instagram_image_url }}" alt="Instagram logo" >
+        <div class= "content-text">
+          <p>@grpride_studio_</p>
+        </a>  
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 4th item on next row centered -->
+  <div class="row text-center">
+    <div class="col-12 d-flex justify-content-center">
+      <div class="footer-location">
+        <h2 class= "contact-heading">{{address}}</h2>
+        <div class= "content-text">
+          <p>
+            <a href="https://www.google.com/maps/place/GR+PRIDE+SALON/@11.0267261,76.9667598,21z/data=!4m6!3m5!1s0x3ba8592838571f41:0x6ebdd7b912f814a5!8m2!3d11.0266053!4d76.9671127!16s%2Fg%2F11vsv4m70t?entry=ttu" target="_blank" rel="noopener noreferrer">
+              {{ location_address }}
+            </a>
+          </p>
+
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
+ 
           {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
             <div class="site-footer__top clearfix">
               {{ page.footer_first }}

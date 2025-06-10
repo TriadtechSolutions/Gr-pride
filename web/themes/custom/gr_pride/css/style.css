@@ -93,6 +93,9 @@ p span {
     color: var(--bs-secondary);
 }
 
+#page-wrapper{
+    margin-top: -20px;
+}
 
 footer {
     padding-top: 100px;
@@ -493,6 +496,39 @@ footer {
   color: #e9b146;
 }
 
+/* Footer */
+.contact-heading{
+    color: #000 !important;
+    font-size: 34px;
+    line-height: 50px;
+}
+
+.content-text p{
+    font-size: 24px;
+    line-height: 32px;
+    color: #e9b146;
+    font-weight: 700;
+}
+
+.content-text a{
+    color: #e9b146;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-second p{
+    font-size: 25px;
+    line-height: 32px;
+}
+
+.footer-third img{
+    height: 50px;
+}
+
+.footer-location{
+    width: 33%;
+}
+
 /****************** Responsive (Mobile) ********************/
 
 @media (min-width:390px) and (max-width:767px){
@@ -670,5 +706,31 @@ footer {
 
   .bottom-left {
     margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-heading {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .content-text p {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+  }
+
+  .footer-second p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .footer-location {
+    width: 90%; /* Make the location full width on mobile */
+  }
+
+  .footer-third img {
+    height: 40px; /* Smaller logo on mobile */
   }
 }

@@ -31,4 +31,230 @@ function gr_pride_form_system_theme_settings_alter(&$form, FormStateInterface $f
     'bg-white' => t('White'),
     'bg-transparent' => t('Transparent'),
   ];
+
+    //Add a new section contact details
+    $form['my_subtheme_contact_details'] = [
+        '#type' => 'details',
+        '#title' => t('Contact Details'),
+        '#open' => 0,
+    ];
+
+    $form['my_subtheme_contact_details']['contact_heading'] = [
+        '#type' => 'textfield',
+        '#title' => t('Contact Heading'),
+        '#default_value' => theme_get_setting('contact_heading'),
+        '#description' => t('Heading text, e.g. Say hello!'),
+    ]; 
+
+    // Add a field for contact phone number
+    $form['my_subtheme_contact_details']['contact_phone'] = [
+        '#type' => 'textfield',
+        '#title' => t('Phone Number'),
+        '#default_value' => theme_get_setting('contact_phone'),
+    ];
+
+    $form['my_subtheme_contact_details']['contact_email'] = [
+    '#type' => 'email',
+    '#title' => t('Email Address'),
+    '#default_value' => theme_get_setting('contact_email'),
+    '#description' => t('Email address, e.g. guruprasathguru07@gmail.com'),
+    ];
+
+    //Add a new section opening hours
+    $form['my_subtheme_opening_hours'] = [
+        '#type' => 'details',
+        '#title' => t('Timing Details'),
+        '#open' => 0, 
+    ];
+
+    $form['my_subtheme_opening_hours']['timing_title'] = [
+        '#type' => 'textfield',
+        '#title' => t('Timing Heading'),
+        '#default_value' => theme_get_setting('timing_title'),
+        '#description' => t('Heading text, e.g. opening hours'),
+    ]; 
+
+    $form['my_subtheme_opening_hours']['timing'] = [
+        '#type' => 'textfield',
+        '#title' => t('Timing Details'),
+        '#default_value' => theme_get_setting('timing'),
+        '#description' => t('Heading text, e.g. timing'),
+    ]; 
+
+    //Add a new section social media links
+    $form['my_subtheme_social_media'] = [
+    '#type' => 'details',
+    '#title' => t('Social Media Link'),
+    '#open' => 0,
+   ];
+
+        //Social media link fields.
+    $form['my_subtheme_social_media']['instagram_link'] = [
+        '#type' => 'url',
+        '#title' => t('Instagram URL'),
+        '#default_value' => theme_get_setting('instagram_link'),
+    ];
+
+    $form['my_subtheme_social_media']['instagram_logo'] = [
+      '#type' => 'managed_file',
+      '#title' => t('Instagram Logo'),
+      '#description' => t('Upload an image to be used as the footer logo.'),
+      '#default_value' => theme_get_setting('instagram_logo'), // File ID to preload
+      '#upload_location' => 'public://images/', // Where to store the uploaded file
+      '#required' => FALSE,
+      '#upload_validators' => [
+        'FileExtension' => [
+            'extensions' => 'png gif jpg jpeg svg',
+        ],
+      ],
+    ];
+
+    //new section for Address field
+    $form['my_subtheme_address'] = [
+        '#type' => 'details',
+        '#title' => t('Address'),
+        '#open' => 0,
+    ];
+
+    $form['my_subtheme_address']['address'] = [
+        '#type' => 'textfield',
+        '#title' => t('Address heading'),
+        '#default_value' => theme_get_setting('address'),
+        '#description' => t('Heading text, e.g. address'),
+    ];
+    
+    $form['my_subtheme_address']['location_address'] = [
+        '#type' => 'textarea',
+        '#title' => t('Location Address'),
+        '#default_value' => theme_get_setting('location_address'),
+        '#description' => t('Full address, e.g. 56 Indhira Nagar Rathinapuri, Coimbatore, Tamilnadu - 641027'),
+    ];
+
+    $form['my_subtheme_copyrights'] = [
+    '#type' => 'details',
+    '#title' => t('Copyrights'),
+    '#open' => 0,
+   ];
+
+       //Social media link fields.
+    $form['my_subtheme_copyrights']['copyrights'] = [
+        '#type' => 'textfield',
+        '#title' => t('Copyrights heading'),
+        '#default_value' => theme_get_setting('copyrights'),
+        '#description' => t('Heading text, e.g. powered by ...'),
+    ];
+    $form['my_subtheme_copyrights']['copyrights_logo'] = [
+      '#type' => 'managed_file',
+      '#title' => t('Copyrights Logo'),
+      '#description' => t('Upload an image to be used as the footer logo.'),
+      '#default_value' => theme_get_setting('copyrights_logo'), // File ID to preload
+      '#upload_location' => 'public://images/', // Where to store the uploaded file
+      '#required' => FALSE,
+      '#upload_validators' => [
+        'FileExtension' => [
+            'extensions' => 'png gif jpg jpeg svg',
+        ],
+      ],
+    ];    
+}  
+
+function gr_pride_form_system_theme_settings_submit($form, FormStateInterface $form_state) {
+  // Handle instagram_logo file upload
+  $file_ids = $form_state->getValue('instagram_logo');
+  
+  if (!empty($file_ids) && is_array($file_ids)) {
+    foreach ($file_ids as $file_id) {
+      if ($file = \Drupal\file\Entity\File::load($file_id)) {
+        // Mark file as permanent
+        $file->setPermanent();
+        $file->save();
+        
+        // IMPORTANT: Add file usage to prevent deletion
+        \Drupal::service('file.usage')->add($file, 'system', 'theme_setting', 1);
+      }
+    }
+  }
+  
+  // Handle old file cleanup if a new file was uploaded
+  $old_file_ids = theme_get_setting('instagram_logo');
+  if (!empty($old_file_ids) && is_array($old_file_ids)) {
+    foreach ($old_file_ids as $old_file_id) {
+      if (!in_array($old_file_id, $file_ids ?? [])) {
+        if ($old_file = \Drupal\file\Entity\File::load($old_file_id)) {
+          // Remove file usage and delete if no longer used
+          \Drupal::service('file.usage')->delete($old_file, 'system', 'theme_setting', 1);
+        }
+      }
+    }
+  }
+
+    // Handle copyrights logo file upload
+  $file_ids = $form_state->getValue('copyrights_logo');
+  
+  if (!empty($file_ids) && is_array($file_ids)) {
+    foreach ($file_ids as $file_id) {
+      if ($file = \Drupal\file\Entity\File::load($file_id)) {
+        // Mark file as permanent
+        $file->setPermanent();
+        $file->save();
+        
+        // IMPORTANT: Add file usage to prevent deletion
+        \Drupal::service('file.usage')->add($file, 'system', 'theme_setting', 1);
+      }
+    }
+  }
+  
+  // Handle old file cleanup if a new file was uploaded
+  $old_file_ids = theme_get_setting('copyrights_logo');
+  if (!empty($old_file_ids) && is_array($old_file_ids)) {
+    foreach ($old_file_ids as $old_file_id) {
+      if (!in_array($old_file_id, $file_ids ?? [])) {
+        if ($old_file = \Drupal\file\Entity\File::load($old_file_id)) {
+          // Remove file usage and delete if no longer used
+          \Drupal::service('file.usage')->delete($old_file, 'system', 'theme_setting', 1);
+        }
+      }
+    }
+  }
+}
+
+ function gr_pride_preprocess_page(&$variables) {
+    $variables['contact_heading'] = theme_get_setting('contact_heading');
+    $variables['contact_phone'] = theme_get_setting('contact_phone');
+    $variables['contact_email'] = theme_get_setting('contact_email');
+    $variables['timing_title'] = theme_get_setting('timing_title');
+    $variables['timing'] = theme_get_setting('timing');
+    $variables['instagram_link'] = theme_get_setting('instagram_link');
+    $variables['address'] = theme_get_setting('address');
+    $variables['location_address'] = theme_get_setting('location_address');
+    $variables['copyrights_logo'] = theme_get_setting('copyrights_logo');
+    $variables['instagram_logo'] = theme_get_setting('instagram_logo');
+
+
+    // Instagram logo
+    $file_ids = theme_get_setting('instagram_logo');
+    if (!empty($file_ids) && is_array($file_ids)) {
+        $file_id = reset($file_ids); // Get first file ID
+        $file = \Drupal\file\Entity\File::load($file_id);
+        if ($file) {
+            $variables['instagram_image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+        } else {
+            $variables['instagram_image_url'] = 'https://example.com/default-instagram-image.jpg';
+        }
+    } else {
+        $variables['instagram_image_url'] = 'https://example.com/default-instagram-image.jpg';
+    }
+
+    $file_ids = theme_get_setting('copyrights_logo');
+    if (!empty($file_ids) && is_array($file_ids)) {
+        $file_id = reset($file_ids); // Get first file ID
+        $file = \Drupal\file\Entity\File::load($file_id);
+        if ($file) {
+            $variables['copyrights_logo_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+        } else {
+            $variables['copyrights_logo_url'] = 'https://example.com/default-copyrights-image.jpg';
+        }
+    } else {
+        $variables['copyrights_logo_url'] = 'https://example.com/default-copyrights-image.jpg';
+    }
 }
