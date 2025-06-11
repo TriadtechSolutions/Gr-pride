@@ -1,4 +1,4 @@
-<div class = "service-grid-wrapper">
+<div class = "service-grid-wrapper service-card" data-bs-toggle="modal" data-bs-target="#serviceModal" data-content="{{ fields.field_service_popup.content ? fields.field_service_popup.content|e('html_attr') : 'No data available' }}">
     <img src = "{{file_url(row._entity.field_image.entity.uri.value)}}" alt = "{{row._entity.field_image.alt}}" height = "300px" width = "300px" class="service-image">
     <h2 class = "service-slider-title">{{fields.title.content}}</h2>
 </div>

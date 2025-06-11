@@ -123,4 +123,12 @@
     }
   };
 
+  $(function () {
+    $('.service-card').on('click', function () {
+      var content = $(this).data('content');
+      $('#serviceModal .modal-body').html(content.replace(/\n/g, "<br>"));
+    });
+  });
+
+
 })(Drupal,jQuery,once);
