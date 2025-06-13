@@ -588,7 +588,7 @@ footer {
 
 }
 
-@media (min-width:320px) and (max-width:375px){
+@media (min-width:320px) and (max-width:389px){
     .home-banner-logo{
         top: 25px;
         max-height: 130px;
