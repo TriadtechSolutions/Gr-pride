@@ -9,6 +9,25 @@
     font-family: 'poltawski nowy';
 }
 
+@font-face {
+    font-family: 'Cabinet Grotesk';
+    src: url('../fonts/CabinetGrotesk/CabinetGrotesk-Bold.eot');
+    src: url('../fonts/CabinetGrotesk/CabinetGrotesk-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/CabinetGrotesk/CabinetGrotesk-Bold.woff2') format('woff2'), url('../fonts/CabinetGrotesk/CabinetGrotesk-Bold.woff') format('woff'), url('../fonts/CabinetGrotesk/CabinetGrotesk-Bold.ttf') format('truetype'), url('../fonts/CabinetGrotesk/CabinetGrotesk-Bold.svg#CabinetGrotesk-Bold') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cabinet Grotesk';
+    src: url('../fonts/CabinetGrotesk/CabinetGrotesk-Medium.eot');
+    src: url('../fonts/CabinetGrotesk/CabinetGrotesk-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/CabinetGrotesk/CabinetGrotesk-Medium.woff2') format('woff2'), url('../fonts/CabinetGrotesk/CabinetGrotesk-Medium.woff') format('woff'), url('../fonts/CabinetGrotesk/Grotesk-Medium.ttf') format('truetype'), url('../fonts/Grotesk/Grotesk-Medium.svg#Grotesk-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 :root {
     --bs-primary: #EE8D5A;
     --bs-secondary: #e53637;
@@ -571,7 +590,7 @@ footer {
 }
 
 @media (min-width:320px) and (max-width:389px){
-    
+
     .home-banner-logo{
         top: 25px;
         max-height: 130px;
