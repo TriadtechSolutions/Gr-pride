@@ -8,6 +8,7 @@ libraries:
   - gr_pride/bootstrap_cdn
   - gr_pride/global-styling
   - gr_pride/swiper
+  - gr_pride/fonts
 
 regions:
   top_header: 'Top header'

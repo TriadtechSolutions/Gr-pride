@@ -167,8 +167,7 @@
         <h2 class= "contact-heading"> {{ contact_heading }}</h2>
         <div class= "content-text">
           <p>
-            Phone:
-            <a href="tel:{{ contact_phone|escape }}">{{ contact_phone|escape }}</a>
+            <a href="tel:{{ contact_phone|escape }}">Phone:{{ contact_phone|escape }}</a>
           </p>
           <p>
             <a href="mailto:{{ contact_email|escape }}">{{ contact_email|escape }}</a>

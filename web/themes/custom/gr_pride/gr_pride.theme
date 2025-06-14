@@ -156,61 +156,31 @@ function gr_pride_form_system_theme_settings_alter(&$form, FormStateInterface $f
         ],
       ],
     ];    
-}  
+  // Attach the custom submit handler
+  $form['#submit'][] = 'gr_pride_form_system_theme_settings_submit';
+}
+ 
 
 function gr_pride_form_system_theme_settings_submit($form, FormStateInterface $form_state) {
-  // Handle instagram_logo file upload
-  $file_ids = $form_state->getValue('instagram_logo');
+  // New uploaded files
+  $instagram_file_ids = $form_state->getValue('instagram_logo');
   
-  if (!empty($file_ids) && is_array($file_ids)) {
-    foreach ($file_ids as $file_id) {
+  if (!empty($instagram_file_ids) && is_array($instagram_file_ids)) {
+    foreach ($instagram_file_ids as $file_id) {
       if ($file = \Drupal\file\Entity\File::load($file_id)) {
-        // Mark file as permanent
         $file->setPermanent();
         $file->save();
-        
-        // IMPORTANT: Add file usage to prevent deletion
         \Drupal::service('file.usage')->add($file, 'system', 'theme_setting', 1);
-      }
-    }
-  }
-  
-  // Handle old file cleanup if a new file was uploaded
-  $old_file_ids = theme_get_setting('instagram_logo');
-  if (!empty($old_file_ids) && is_array($old_file_ids)) {
-    foreach ($old_file_ids as $old_file_id) {
-      if (!in_array($old_file_id, $file_ids ?? [])) {
-        if ($old_file = \Drupal\file\Entity\File::load($old_file_id)) {
-          // Remove file usage and delete if no longer used
-          \Drupal::service('file.usage')->delete($old_file, 'system', 'theme_setting', 1);
-        }
       }
     }
   }
 
-    // Handle copyrights logo file upload
-  $file_ids = $form_state->getValue('copyrights_logo');
-  
-  if (!empty($file_ids) && is_array($file_ids)) {
-    foreach ($file_ids as $file_id) {
-      if ($file = \Drupal\file\Entity\File::load($file_id)) {
-        // Mark file as permanent
-        $file->setPermanent();
-        $file->save();
-        
-        // IMPORTANT: Add file usage to prevent deletion
-        \Drupal::service('file.usage')->add($file, 'system', 'theme_setting', 1);
-      }
-    }
-  }
-  
-  // Handle old file cleanup if a new file was uploaded
-  $old_file_ids = theme_get_setting('copyrights_logo');
-  if (!empty($old_file_ids) && is_array($old_file_ids)) {
-    foreach ($old_file_ids as $old_file_id) {
-      if (!in_array($old_file_id, $file_ids ?? [])) {
+  // Clean up old files
+  $instagram_old_file_ids = theme_get_setting('instagram_logo');
+  if (!empty($instagram_old_file_ids) && is_array($instagram_old_file_ids)) {
+    foreach ($instagram_old_file_ids as $old_file_id) {
+      if (!in_array($old_file_id, $instagram_file_ids ?? [])) {
         if ($old_file = \Drupal\file\Entity\File::load($old_file_id)) {
-          // Remove file usage and delete if no longer used
           \Drupal::service('file.usage')->delete($old_file, 'system', 'theme_setting', 1);
         }
       }
@@ -227,34 +197,25 @@ function gr_pride_form_system_theme_settings_submit($form, FormStateInterface $f
     $variables['instagram_link'] = theme_get_setting('instagram_link');
     $variables['address'] = theme_get_setting('address');
     $variables['location_address'] = theme_get_setting('location_address');
-    $variables['copyrights_logo'] = theme_get_setting('copyrights_logo');
-    $variables['instagram_logo'] = theme_get_setting('instagram_logo');
 
 
     // Instagram logo
-    $file_ids = theme_get_setting('instagram_logo');
-    if (!empty($file_ids) && is_array($file_ids)) {
-        $file_id = reset($file_ids); // Get first file ID
-        $file = \Drupal\file\Entity\File::load($file_id);
-        if ($file) {
-            $variables['instagram_image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
-        } else {
-            $variables['instagram_image_url'] = 'https://example.com/default-instagram-image.jpg';
-        }
-    } else {
-        $variables['instagram_image_url'] = 'https://example.com/default-instagram-image.jpg';
-    }
+  $instagram_file_ids = theme_get_setting('instagram_logo');
+  if (!empty($instagram_file_ids) && is_array($instagram_file_ids)) {
+    $file_id = reset($instagram_file_ids);
+    $file = \Drupal\file\Entity\File::load($file_id);
+    if ($file) {
+      // Redundantly make permanent if needed
+      if ($file->isTemporary()) {
+        $file->setPermanent();
+        $file->save();
+      }
 
-    $file_ids = theme_get_setting('copyrights_logo');
-    if (!empty($file_ids) && is_array($file_ids)) {
-        $file_id = reset($file_ids); // Get first file ID
-        $file = \Drupal\file\Entity\File::load($file_id);
-        if ($file) {
-            $variables['copyrights_logo_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
-        } else {
-            $variables['copyrights_logo_url'] = 'https://example.com/default-copyrights-image.jpg';
-        }
+      $variables['instagram_image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
     } else {
-        $variables['copyrights_logo_url'] = 'https://example.com/default-copyrights-image.jpg';
+      $variables['instagram_image_url'] = 'https://example.com/default-instagram-image.jpg';
     }
+  } else {
+    $variables['instagram_image_url'] = 'https://example.com/default-instagram-image.jpg';
+  }
 }

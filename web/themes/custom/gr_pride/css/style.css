@@ -9,6 +9,19 @@
     font-family: 'poltawski nowy';
 }
 
+@font-face {
+  font-family: 'Poltawski Nowy';
+  src: url('../fonts/poltawskinowy-variablefont_wght-webfont.woff2') format('woff2'),
+       url('../fonts/poltawskinowy-variablefont_wght-webfont.woff') format('woff'),
+       url('../fonts/PoltawskiNowy-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Poltawski Nowy', sans-serif;
+}
+
 
 :root {
     --bs-primary: #EE8D5A;
@@ -148,6 +161,10 @@ footer {
 
 #top-spacing {
     padding-top: 104px;
+}
+
+body {
+  font-family: 'Poltawski Nowy', serif;
 }
 
 /****************From Here the section code is starting ***********************/
@@ -494,7 +511,7 @@ footer {
 }
 
 .content-text p:hover{
-    color:royalblue;
+    color:#081c35;
 }
 
 .content-text a{
@@ -504,7 +521,7 @@ footer {
 }
 
 .content-text a:hover{
-    color:royalblue;
+    color:#081c35;
 }
 
 .footer-second p{
