@@ -20,5 +20,5 @@ jobs:
         server: ftp.grpride.online
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./
-        server-dir: /public_html/master/
+        local-dir: ./web/
+        server-dir: /public_html/master/web/
