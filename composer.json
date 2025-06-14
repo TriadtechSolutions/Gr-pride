@@ -25,6 +25,7 @@
         "drupal/page_title_visibility": "^2.0",
         "drupal/paragraphs": "^1.19",
         "drupal/viewsreference": "^2.0@beta",
+        "drupal/webform": "^6.3@beta",
         "drush/drush": "^13.6"
     },
     "conflict": {
