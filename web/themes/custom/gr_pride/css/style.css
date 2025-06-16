@@ -427,10 +427,10 @@ body {
 .member-price {
   position: relative;
   z-index: 2;
-  padding: 2rem;
+  padding: 3rem 6rem 0 6rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 /* Top Section */
@@ -440,7 +440,7 @@ body {
   align-items: center;
   background: #f3f3f3;
   border-radius: 0 0 50px 0;
-  padding: 2rem;
+  padding: 5rem;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
   flex-wrap: wrap;
 }
@@ -453,6 +453,13 @@ body {
 .text-content h4 {
   font-weight: 900;
   margin-bottom: 0.5rem;
+  font-size: 30px;
+  line-height: 50px;
+}
+
+.text-content p{
+    font-size: 30px;
+    line-height: 50px;
 }
 
 .membership-image {
@@ -461,7 +468,7 @@ body {
 }
 
 .membership-card-image {
-  max-width: 200px;
+  max-width: 315px;
   height: auto;
 }
 
@@ -471,8 +478,8 @@ body {
   background: #0e0e0e;
   color: #fff;
   border-radius: 0 50px 0 0;
-  padding: 2rem;
-  gap: 2rem;
+  padding: 2.5rem 0 3.5rem 10rem;
+  gap: 12rem;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -482,7 +489,7 @@ body {
 }
 
 .bottom-left img {
-  max-width: 120px;
+  max-width: 240px;
   height: auto;
 }
 
@@ -490,6 +497,11 @@ body {
   flex: 1;
   color: #fff;
   font-size: 1.1rem;
+}
+
+.bottom-right p{
+    font-size: 36px;
+    line-height: 44px;
 }
 
 .bottom-right strong {
@@ -538,10 +550,15 @@ body {
 }
 
 /****************** Responsive (Mobile) ********************/
+@media (min-width:385px) and (max-width:395px) {
+    .full-width{
+        height: 100vh;
+    }
+}
 
 @media (min-width:390px) and (max-width:767px){
     .home-banner-title{
-        font-size: 30px;
+        font-size: 27px;
     }
 
     .home-banner-content-wrapper{
@@ -560,8 +577,8 @@ body {
     }
 
     .about-quote-section p{
-        font-size: 24px;
-        line-height: 32px;
+        font-size: 22px;
+        line-height: 30px;
     }
 
     .about-text-wrapper{
@@ -675,9 +692,19 @@ body {
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
-  .top-section,
+@media (max-width: 767px) {
+
   .bottom-section {
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    text-align: left;
+    padding: 2rem;
+    gap: 0;
+  }
+
+  .top-section{
+    padding: 2rem;
     flex-direction: column;
     align-items: center;
     border-radius: 15px;
@@ -693,10 +720,17 @@ body {
 
   .text-content h4{
     font-size: 21px;
+    line-height: 30px;
   }
 
   .text-content p{
     font-size: 20px;
+    line-height: 25px;
+  }
+
+  .member-price{
+    padding: 2rem;
+    gap: 2rem;
   }
 
   .membership-image {
@@ -704,17 +738,15 @@ body {
     margin-top: 1rem;
   }
 
-  .bottom-section {
-    text-align: left;
+  .bottom-left img {
+    max-width: 160px;
   }
-
+  
   .bottom-right p{
     color: #e9b146;
     font-size: 20px;
-  }
-
-  .bottom-left {
-    margin-bottom: 1rem;
+    font-size: 15px;
+    line-height: 25px;
   }
 
    .contact-heading {
