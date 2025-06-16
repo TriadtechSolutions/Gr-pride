@@ -509,6 +509,11 @@ body {
 }
 
 /* Footer */
+
+.footer-first .content-text p{
+  line-height: 22px;
+}
+
 .contact-heading{
     color: #000 !important;
     font-size: 34px;
@@ -547,6 +552,10 @@ body {
 
 .footer-location{
     width: 33%;
+}
+
+.footer-third .content-text p{
+  line-height: 52px;
 }
 
 /****************** Responsive (Mobile) ********************/
@@ -771,5 +780,17 @@ body {
 
   .footer-third img {
     height: 40px; /* Smaller logo on mobile */
+  }
+
+  .footer-first .content-text p{
+    line-height: 15px;
+  }
+
+  .footer-third .content-text p{
+    line-height: 40px;
+  }
+  
+  .footer-location .content-text p{
+    line-height: 26px;
   }
 }
