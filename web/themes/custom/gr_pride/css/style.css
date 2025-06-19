@@ -269,7 +269,7 @@ body {
 }
 
 .slot-booking{
-  background-image: url('/sites/default/files/2025-06/iPhone 14 & 15 Pro Max - 1 (2).png'); /* adjust path */
+  background-image: url('/sites/default/files/images/Slot bd image.png'); /* adjust path */
   background-size: cover;
   background-position: center;
   padding: 30px;
@@ -621,6 +621,11 @@ body {
   color: #e9b146;
 }
 
+
+.footer-location {
+  margin: -6px;
+}
+
 /* Footer */
 
 .footer-first .content-text p{
@@ -867,7 +872,6 @@ body {
   .bottom-right p{
     color: #e9b146;
     font-size: 20px;
-    font-size: 15px;
     line-height: 25px;
   }
 
