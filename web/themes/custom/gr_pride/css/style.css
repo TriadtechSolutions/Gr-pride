@@ -435,13 +435,14 @@ body {
 
 .about-quote-section p{
     font-size: 44px;
-    color: #FBB034;
+    color: #CB9A44;
     line-height: 50px;
 }
 
 .about-author{
     margin-top: 40px;
     font-weight: 600;
+    color: #FBB034 !important;
     text-align: right;
 }
 
@@ -480,7 +481,7 @@ body {
     text-align: center;
     font-size: 40px;
     line-height: 46px;
-    color: #FBB034;
+    color: #CB9A44;
 }
 
 .service-image{
@@ -909,5 +910,17 @@ body {
   
   .footer-location .content-text p{
     line-height: 26px;
+  }
+}
+
+/****************** Desktop Responsive ***************/
+
+@media (min-width: 1200px){
+  .bottom-right span{
+    font-size: 30px !important ;
+  }
+
+  .bottom-right p{
+    font-size: 30px !important ;
   }
 }
