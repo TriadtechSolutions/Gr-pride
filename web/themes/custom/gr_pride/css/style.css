@@ -269,7 +269,7 @@ body {
 }
 
 .slot-booking{
-  background-image: url('/sites/default/files/images/Slot bd image.png'); /* adjust path */
+  background-image: url('/sites/default/files/2025-06/iPhone 14 & 15 Pro Max - 1 (2).png'); /* adjust path */
   background-size: cover;
   background-position: center;
   padding: 30px;
@@ -279,23 +279,22 @@ body {
 }
 
 .slot-image-title{
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-75px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .slot-title{
-  margin-top: 160px;
+  margin-top: 145px;
 }
 .slot-home-logo{
   position: absolute;
-    top: 0px;
+    top: 10px;
     height: 100%;
     max-height: 150px;
 }
 
 .slot-form{
-  padding: 190px 0 0 0;
+  padding: 20px 0 0 0;
 }
 
 .slot-form .form-control {
@@ -330,11 +329,7 @@ body {
   background-color: #e6f0ff;
   transition: background-color 0.3s;
 }
-.disabled-slot {
-  pointer-events: none;
-  opacity: 0.5;
-  background-color: #f8f9fa;
-}
+
 
 .webform-custom-options-button {
   border: 1px solid #ccc;
@@ -355,7 +350,114 @@ body {
   border-color: #cb9a44;
 }
 
+.webform-custom-options-button.disabled-slot {
+  pointer-events: none;
+  opacity: 0.5;
+  background-color: #eee;
+}
 
+.thank-you-container{
+  background-image: url('/sites/default/files/2025-06/iPhone 14 & 15 Pro Max - 1 (2).png'); /* adjust path */
+  background-size: cover;
+  background-position: center;
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  color: #000;
+  position: relative;
+}
+
+@media (min-width:1200px) {
+  .thank-you-container{
+    flex-direction: column;
+  }
+}
+
+.thank-you-image img {
+  max-height: 150px;
+  height: auto;
+}
+
+.thank-you-content h2 {
+  font-size: 24px;
+  line-height: 18px;
+}
+
+.thank-you-content p {
+  font-size: 22px;
+  line-height: 34px;
+  color: #000;
+  line-height: 29px
+}
+
+#booking-name{
+  color: #e9b146;
+}
+
+.thank-you-container .home-banner-button {
+  top: 85%;
+}
+
+.slot-details {
+  padding-top: 12px;
+}
+
+.slot-details p {
+  font-family: sans-serif;
+  font-size: 22px;
+  line-height: 29px;
+}
+
+.slot-details strong {
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+.slot-details .slot-heading {
+  margin-bottom: 2px;
+  font-family: sans-serif;
+  font-weight: 900;
+}
+
+.slot-details span{
+  font-family: sans-serif;
+  color: #000;
+}
+
+.slot-date {
+  margin-bottom: 0;
+}
+
+.thank-you-content a {
+  color: #000;
+}
+
+.thank-home-button {
+  background-color: #FBB034;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 5px;
+  bottom: 80px;
+  left: 50%;
+  font-weight: 900;
+}
+
+.thank-home-button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.thank-home-button a:hover {
+  color: #fff;
+}
 
 /******************** Home Banner style activities**********************/
 
@@ -442,8 +544,8 @@ body {
 .about-author{
     margin-top: 40px;
     font-weight: 600;
-    color: #FBB034 !important;
     text-align: right;
+    color: #FBB034 !important;
 }
 
 .service-section {
@@ -620,11 +722,6 @@ body {
 
 .bottom-right strong {
   color: #e9b146;
-}
-
-
-.footer-location {
-  margin: -6px;
 }
 
 /* Footer */
@@ -873,6 +970,7 @@ body {
   .bottom-right p{
     color: #e9b146;
     font-size: 20px;
+    font-size: 15px;
     line-height: 25px;
   }
 

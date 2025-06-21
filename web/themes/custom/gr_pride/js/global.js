@@ -129,6 +129,62 @@
       $('#serviceModal .modal-body').html(content.replace(/\n/g, "<br>"));
     });
   });
+  
+  jQuery(document).ready(function ($) {
+  const now = new Date();
+  const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get('name');
+  const date = params.get('date'); // Format: dd-mm-yy
+  const time = params.get('time');
+
+  // Store booking to localStorage
+  if (name && date && time) {
+    const booking = { name, date, time };
+    let bookings = JSON.parse(localStorage.getItem('all_bookings') || '[]');
+    bookings.push(booking);
+    localStorage.setItem('all_bookings', JSON.stringify(bookings));
+  }
+
+  // Load bookings and remove past dates
+  let bookings = JSON.parse(localStorage.getItem('all_bookings') || '[]');
+  bookings = bookings.filter(function (b) {
+    const parts = b.date.split('-');
+    if (parts.length !== 3) return false;
+
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1;
+    let year = parseInt(parts[2], 10); 
+
+    // Handle two-digit year (assume 2000–2099)
+    if (year < 100) {
+      year += 2000;
+    }
+
+    const bookingDate = new Date(year, month, day);
+    return bookingDate >= todayMidnight; // Keep if today or future
+  });
+
+  localStorage.setItem('all_bookings', JSON.stringify(bookings));
+
+  // Display latest booking if available
+  if (bookings.length > 0) {
+    let latest = bookings[bookings.length - 1];
+    $('#booking-name').text(latest.name);
+    $('#booking-date').text(latest.date);
+    $('#booking-time').text(latest.time);
+  } else {
+    $('.thank-you-container').html(`
+      <h2>Oops! No appointment yet?</h2>
+      <h2>Book your beauty break before it books someone else!</h2>
+      <div class= "thank-home-button">
+      <a href="/slot-booking">Book Slot</a>
+      </div>
+      <a href = "{{ path('<front>') }}">Back to Home</a>
+    `);
+  }
+});
 
 
 })(Drupal,jQuery,once);

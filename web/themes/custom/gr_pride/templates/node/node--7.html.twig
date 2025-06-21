@@ -1,0 +1,43 @@
+<div class="thank-you-container text-center">
+   <div class ="thank-you-image">
+    <a href = "{{ path('<front>') }}">
+        <img src= "{{file_url(content.field_image[0]['#item'].entity.uri.value)}}" alt= "{{content.field_image[0]['#item'].value.alt}}">
+    </a>
+   </div>
+    <div class = "thank-you-content">
+        <h2>Thanks, <span id="booking-name">...</span>.</h2>
+        <p>Your salon experience begins now. Get ready for elegant look!</p>
+        <div class = "slot-details">
+            <p class= "slot-heading">Your slot is booked for:</p>
+            <p class="slot-date"><strong>Date:</strong> <span id="booking-date"></span></p>
+            <p><strong>Time:</strong> <span id="booking-time"></span></p>
+        </div>
+        <a href = "{{ path('<front>') }}">Back to Home</a>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+  window.onload = () => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+
+    if (token) {
+      const shownTokens = JSON.parse(localStorage.getItem('confetti_shown_tokens') || '[]');
+
+      if (!shownTokens.includes(token)) {
+        // First time this token is used → show confetti
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+
+        // Mark this token as shown
+        shownTokens.push(token);
+        localStorage.setItem('confetti_shown_tokens', JSON.stringify(shownTokens));
+      }
+    }
+  };
+</script>
