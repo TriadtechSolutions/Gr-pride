@@ -178,10 +178,11 @@
     $('.thank-you-container').html(`
       <h2>Oops! No appointment yet?</h2>
       <h2>Book your beauty break before it books someone else!</h2>
-      <div class= "thank-home-button">
-      <a href="/slot-booking">Book Slot</a>
+      <div class="booking-actions">
+        <a href="/slot-booking" class="book-slot-btn">Book Slot</a>
+        <a href="/" class="back-home-link">Back to Home</a>
       </div>
-      <a href = "{{ path('<front>') }}">Back to Home</a>
+      
     `);
   }
 });
