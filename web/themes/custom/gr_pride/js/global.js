@@ -187,5 +187,26 @@
   }
 });
 
+jQuery(document).ready(function ($) {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+
+    if (token) {
+      const shownTokens = JSON.parse(localStorage.getItem('confetti_shown_tokens') || '[]');
+
+      if (!shownTokens.includes(token)) {
+        // First time this token is used → show confetti
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+
+        // Mark this token as shown
+        shownTokens.push(token);
+        localStorage.setItem('confetti_shown_tokens', JSON.stringify(shownTokens));
+      }
+    }
+  });
 
 })(Drupal,jQuery,once);
