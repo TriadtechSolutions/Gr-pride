@@ -801,6 +801,9 @@ body {
     .full-width{
         height: 100vh;
     }
+    .button-group-absolute {
+      margin-bottom: -25px;
+    }
 }
 
 @media (min-width:390px) and (max-width:767px){
@@ -875,7 +878,7 @@ body {
     }
 
     .home-banner-desc{
-        font-size: 25px;
+        font-size: 23px;
         line-height: 34px;
     }
 
@@ -1039,7 +1042,7 @@ body {
   }
 
   .outline-button {
-    padding: 12px 50px;
+    padding: 6px 35px;
   }
 }
 
