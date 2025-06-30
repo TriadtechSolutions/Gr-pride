@@ -1,0 +1,8 @@
+name: 'GRPride Core'
+type: module
+description: 'Enforces 2-person per time slot rule for booking webform.'
+core_version_requirement: ^11
+package: Custom
+version: 1.0
+dependencies:
+  - webform
