@@ -58,7 +58,6 @@ function grpride_core_get_full_slots() {
   $query->having('submission_count >= :count', [':count' => 2]);
 
   $result = $query->execute()->fetchAll();
-
   $full_slots = [];
   foreach ($result as $record) {
     $full_slots[] = $record->value;
